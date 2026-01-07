@@ -61,7 +61,7 @@ class OpenAIImageEditor:
 
         try:
             result = self.client.images.edit(
-                model=model,
+                model=model.value,
                 image=images,
                 prompt=prompt,
             )
