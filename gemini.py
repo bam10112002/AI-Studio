@@ -24,16 +24,16 @@ class GeminiImageEditor:
         )
 
     @staticmethod
-    def _load_single_image(path: str) -> types.ImageInput:
+    def _load_single_image(path: str) -> types.Blob:
         """
-        Загружает одно изображение и конвертирует в ImageInput
+        Загружает одно изображение и конвертирует в Blob
         """
         image = Image.open(path)
 
         buffer = BytesIO()
         image.save(buffer, format="PNG")
 
-        return types.ImageInput(content=buffer.getvalue())
+        return types.Blob(mime_type="image/png", data=buffer.getvalue())
 
     def load_images(
         self,
